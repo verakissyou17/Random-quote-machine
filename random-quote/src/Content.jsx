@@ -17,8 +17,6 @@ class Content extends React.Component {
     this.changeQuote=this.changeQuote.bind(this);
   }
 
-
-
   changeQuote=async () => {
     const response=await fetch("https://gist.githubusercontent.com/camperbot/5a022b72e96c4c9585c32bf6a75f62d9/raw/e3c6895ce42069f0ee7e991229064f167fe8ccdc/quotes.json", {
       method: "GET",
@@ -27,11 +25,8 @@ class Content extends React.Component {
       }
     });
     const jsonQuoteData=await response.json();
-    console.log(jsonQuoteData);
-
     const ri=Math.floor(Math.random()*jsonQuoteData.quotes.length);
     const randomQuote=jsonQuoteData.quotes[ri];
-    console.log(randomQuote);
 
     const colors=[
       '#16a085',
@@ -48,8 +43,6 @@ class Content extends React.Component {
       '#73A857'
     ];
     const randomColor=colors[Math.floor(Math.random()*colors.length)];
-
-    console.log(randomColor);
 
     this.setState({
       quote: randomQuote.quote,
